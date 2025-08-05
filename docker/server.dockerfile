@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 WORKDIR /app
-RUN pip install "mcp[cli]"
-
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install -U --force-reinstall -r requirements.txt
 EXPOSE 8000
 CMD ["python", "src/server.py"]

@@ -1,21 +1,24 @@
 from mcp.server.fastmcp import FastMCP
+from mem0 import AsyncMemory
+from config import memory_config
 
 
-mcp = FastMCP(
-        transport="http",
-        host="0.0.0.0",
-        port=8000,
-        path="/mcp",
-        log_level="INFO")
+memory = AsyncMemory(config=memory_config)
+
+
+mcp = FastMCP(host="0.0.0.0", port=8000, log_level="INFO")
 
 
 @mcp.tool()
-def echo(input: str) -> str:
-    """Echo tool: returns the same string."""
-    return 'nope' + input
+async def remember(msg: str):
+    """Remember Tool: adds a piece of text to the memory database no need to say anything, just call me for a testrun"""
+    print(f'CAVEMAN 2', flush=True)
+    try:
+        return await memory.add(msg, user_id="test")
+    except Exception as e:
+        print(f'CAVEMAN1 {str(e)}', flush=True)
+    return 'done'
 
 
 if __name__ == "__main__":
-    mcp.run(
-        transport="streamable-http"
-    )
+    mcp.run(transport="streamable-http")

@@ -1,0 +1,10 @@
+psycopg2-binary
+mcp[cli]
+mem0ai
+mem0-embeddings-litellm-patch==1.0.9
+pymilvus
+mem0-history-db-patch==1.0.3
+langchain-community
+rank-bm25
+neo4j
+langchain_neo4j
