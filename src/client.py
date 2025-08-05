@@ -21,7 +21,7 @@ async def main():
     msg = [{"role": "user", "content": inputthought}]
     handler = agent.run(
         f"""
-You are using a memory tool. 
+You are using a memory tool.
 Call the memory tool with the following message history: {msg}.
 After the tool returns, read its response and return a clean summary to the user.
 Do not report a failure unless the tool response explicitly contains an error.
