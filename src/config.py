@@ -5,7 +5,7 @@ from prompts import inputthought
 vconfig = {
     "provider": "milvus",
     "config": {
-        "url": "http://milvus:19530",
+        "url": os.getenv('VECTORSTORE_URL'),
         "collection_name": "personal_memories",
         "embedding_model_dims": 2048,
     },
@@ -15,8 +15,8 @@ vconfig = {
 embedconfig = {
     "provider": "litellm",
     "config": {
-        "api_key": os.getenv("VOYAGEAI_API_KEY"),
-        "model": "voyage/voyage-3-large",
+        "api_key": os.getenv("EMBEDDING_PROVIDER_API_KEY"),
+        "model": os.getenv('EMBEDDING_MODEL'),
         "embedding_dims": 2048,
     },
 }
