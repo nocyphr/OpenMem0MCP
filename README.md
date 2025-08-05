@@ -38,24 +38,10 @@ Together, these patches make the original mem0 project suitable for production u
 ### 1. Clone & Configure
 
 ```bash
-git clone https://github.com/your-username/nocypher-mem0-mcp.git
-cd nocypher-mem0-mcp/docker
-cp template.env .env
-````
+git clone https://github.com/nocyphr/OpenMem0MCP.git
+```
 
 Edit `.env` and provide the necessary values:
-
-| Variable              | Description                                |
-| --------------------- | ------------------------------------------ |
-| `GRAPHSTORE_URL`      | Neo4j connection string                    |
-| `GRAPHSTORE_USER`     | Neo4j username                             |
-| `GRAPHSTORE_PASSWORD` | Neo4j password                             |
-| `VECTORSTORE_URL`     | Milvus / vector DB URL                     |
-| `DATABASE_URL`        | SQLAlchemy database URL (e.g. Postgres)    |
-| `EMBEDDING_PROVIDER`  | Embedding service to use (e.g. `openai`)   |
-| `EMBEDDING_MODEL`     | Model name (e.g. `text-embedding-3-small`) |
-| `EMBEDDING_API_KEY`   | API key for your embedding provider        |
-| `MCP_PORT`            | Port for the MCP server (e.g. `8000`)      |
 
 ### 2. Run with Docker Compose
 
@@ -80,7 +66,7 @@ source .venv/bin/activate
 pip install -r docker/requirements.txt
 python testme.py
 ```
-
+Alternatively in `src/client.py` is a sample script that makes an agent use the tools. You can run that too for an agentic test. 
 This sends test requests to your running MCP server.
 
 ## API Overview
@@ -97,7 +83,7 @@ Note: Deletion and manual updates are not exposed as endpoints. mem0 handles int
 
 You can configure the system to use:
 
-* Any SQLAlchemy-supported database (PostgreSQL, MySQL, etc.)
+* Any SQLAlchemy-supported database (Supabase/PostgreSQL, MySQL, etc.)
 * Any embedding model supported by `litellm`
 * Any Graphstore supported by mem0 (default setup is neo4j)
 * Any Vectorstore supported by mem0 (default setup is milvus)
