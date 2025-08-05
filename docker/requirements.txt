@@ -1,6 +1,6 @@
 psycopg2-binary
 mcp[cli]
-mem0ai
+mem0ai==0.1.115
 mem0-embeddings-litellm-patch==1.0.9
 pymilvus
 mem0-history-db-patch==1.0.3
