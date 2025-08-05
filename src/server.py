@@ -9,8 +9,8 @@ mcp = FastMCP(host="0.0.0.0", port=os.getenv("MCP_PORT", 8000), log_level="INFO"
 
 
 @mcp.tool()
-async def remember(msg: str):
-    """Remember Tool: adds a piece of text to the memory database no need to say anything, just call me for a testrun"""
+async def memorize(msg: str):
+    """memorize Tool: adds a piece of text to the memory database no need to say anything, just call me for a testrun"""
     try:
         return await memory.add(msg, user_id="test")
     except Exception as e:
