@@ -1,12 +1,13 @@
 from mcp.server.fastmcp import FastMCP
 from mem0 import AsyncMemory
 from config import memory_config
+import os
 
 
 memory = AsyncMemory(config=memory_config)
 
 
-mcp = FastMCP(host="0.0.0.0", port=8000, log_level="INFO")
+mcp = FastMCP(host="0.0.0.0", port=os.getenv('MCP_PORT', 8000), log_level="INFO")
 
 
 @mcp.tool()
