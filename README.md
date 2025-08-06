@@ -107,6 +107,7 @@ In the future, additional compose files may be provided for different deployment
 ## Roadmap / To-Do
 
 * [x] Finalize `.env` migration for all config variables
+* [x] remove ports mapping to host for companion services
 * [ ] Add Traefik reverse proxy
 * [ ] add option for raw ingestion to vstore
 ## Credits
