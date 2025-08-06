@@ -15,7 +15,7 @@ async def main():
 
     tools = await spec.to_tool_list_async()
 
-    llm = OpenAI(model="gpt-4o-mini")
+    llm = OpenAI(model="gpt-4o")
     agent = ReActAgent(tools=tools, llm=llm)
     ctx = Context(agent)
     msg = [{"role": "user", "content": inputthought}]

@@ -52,9 +52,6 @@ services:
     environment:
       MINIO_ACCESS_KEY: minioadmin
       MINIO_SECRET_KEY: minioadmin
-    ports:
-      - "9001:9001"
-      - "9000:9000"
     command: minio server /minio_data --console-address ":9001"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
@@ -76,9 +73,6 @@ services:
       start_period: 90s
       timeout: 20s
       retries: 3
-    ports:
-      - "19530:19530"
-      - "9091:9091"
     depends_on:
       - "etcd"
       - "minio"
@@ -95,7 +89,6 @@ services:
     container_name: neo4j
     ports:
       - "7474:7474"   # HTTP web interface (Neo4j Browser)
-      - "7687:7687"   # Bolt protocol port for database access
     environment:
       - NEO4J_AUTH=$NEO4J_AUTH
       - NEO4J_dbms_security_procedures_unrestricted=apoc.*
