@@ -9,3 +9,4 @@ rank-bm25
 neo4j
 langchain_neo4j
 llama-index
+llama-index-tools-mcp
