@@ -24,7 +24,8 @@ async def run_both():
     async with Client("http://localhost:8000/mcp/") as client:
         # await client.call_tool("remember", {"msg": "Only doing the thing is doing the thing."})
         res = await client.call_tool("recall", {"query": "what do you know of failure?"})
-        results = json.loads(res.content[0].text).get('results')
-        print(res.structured_content, type(res.structured_content))
-        print(results, len(results))
+        if res.content:
+            results = json.loads(res.content[0].text).get('results')
+            print(res.structured_content, type(res.structured_content))
+            print(results, len(results))
 asyncio.run(run_both())
