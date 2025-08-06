@@ -106,8 +106,9 @@ In the future, additional compose files may be provided for different deployment
 
 ## Roadmap / To-Do
 
-* [ ] Finalize `.env` migration for all config variables
-
+* [x] Finalize `.env` migration for all config variables
+* [ ] Add Traefik reverse proxy
+* [ ] add option for raw ingestion to vstore
 ## Credits
 
 Created and maintained by \[Nocyphr].
