@@ -110,6 +110,7 @@ In the future, additional compose files may be provided for different deployment
 * [x] remove ports mapping to host for companion services
 * [ ] Add Traefik reverse proxy
 * [ ] add option for raw ingestion to vstore
+* [ ] add tests (duh)
 ## Credits
 
 Created and maintained by \[Nocyphr].
