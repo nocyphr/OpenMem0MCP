@@ -3,49 +3,50 @@ import os
 from prompts import inputthought
 
 vconfig = {
-    "provider": "milvus",
+    "provider": os.getenv('VECTORSTORE_PROVIDER'),
     "config": {
         "url": os.getenv('VECTORSTORE_URL'),
-        "collection_name": "personal_memories",
-        "embedding_model_dims": 2048,
+        "collection_name": os.getenv('VECTORSTORE_COLLECTION_NAME'),
+        "embedding_model_dims": os.getenv('EMBEDDING_DIMS'),
     },
 }
 
 
 embedconfig = {
-    "provider": "litellm",
+    "provider": os.getenv('EMBEDDING_PROVIDER'),
     "config": {
         "api_key": os.getenv("EMBEDDING_PROVIDER_API_KEY"),
         "model": os.getenv('EMBEDDING_MODEL'),
-        "embedding_dims": 2048,
+        "embedding_dims": os.getenv('EMBEDDING_DIMS'),
     },
 }
 
 llmconfig = {
-    "provider": "litellm",
-    "config": {"model": "gpt-4o", "temperature": 0.7, "max_tokens": 10000},
+    "provider": os.getenv('GENERAL_LLM_PROVIDER'),
+    "config": {
+        "model": os.getenv('GENERAL_LLM_MODEL'),
+        "temperature": os.getenv('GENERAL_LLM_TEMP'),
+        "max_tokens": os.getenv('GENERAL_LLM_MAX_TOKEN')},
 }
 
 graphconfig = {
-    "provider": "neo4j",
+    "provider": os.getenv('GRAPH_TYPE'),
     "config": {
-        "url": "bolt://neo4j:7687",
+        "url": os.getenv('GRAPH_URL'),
         "username": os.getenv("NEO4J_USER"),
         "password": os.getenv("NEO4J_PASSWORD"),
-        "database": "neo4j",
+        "database": os.getenv('GRAPH_TYPE')
     },
     "llm": {
-        "provider": "litellm",
+        "provider": os.getenv('GRAPH_LLM_PROVIDER'),
         "config": {
-            'model': 'claude-3-7-sonnet-20250219',
-            # "model": "claude-sonnet-4-20250514",
-            "temperature": 0.7,
-            "max_tokens": 64000,
+            'model': os.getenv('GRAPH_LLM_MODEL'),
+            "temperature": os.getenv('GRAPH_LLM_TEMP'),
+            "max_tokens": os.getenv('GRAPH_LLM_MAX_TOKEN'),
         },
     },
     # "custom_prompt": ...,
 }
-print(graphconfig, flush=True)
 fact_extraction_prompt: str = f"""
 Extract the relevant facts and information from the content in a json format as shown below
 
@@ -57,9 +58,8 @@ Output: {{
   "facts": [
     "Evolving systems are more effective than perfection.",
     "Actions today influence whether tomorrow is easier or harder.",
-    "Men often achieve peak accomplishments with supportive women, not because of them.",
-    "Women's self-esteem may be boosted at the cost of limiting male potential in relationships.",
     "Quotes are powerful due to their distilled, singular format.",
+    "Women's self-esteem may be boosted at the cost of limiting male potential in relationships.",
     "Life quality suffers when dependent on an unreliable person.",
     "Trying to prevent an idiot from making mistakes may result in becoming one.",
     "Repeated pain that didn’t teach will likely not be outdone by advice.",

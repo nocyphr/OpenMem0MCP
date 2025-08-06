@@ -64,11 +64,6 @@ Sometimes you think about where you should be and contrast it with where you are
 > Will tomorrow be easier or harder based on my actions today?
 > And how far do they carry forward?
 
-> The thought about a man sacrificing everything and leaving all behind for that one woman may seem peak romance at first glance,
-> until you realize peak achievements of humanity were created by men with a woman behind them, not above them
-
-Although it may give the woman peak feelings of power and control and majorly feed her self-esteem - limiting the mans potential, as the risk carrying party in a relationship, ultimately limits the potential of the relationship and thereby the quality of life for her and their children.
-
 > Quotes are more intense because they are distilled to a singular line.
 
 They are oneliners vs my mindset paragraphs.
