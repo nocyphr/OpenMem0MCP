@@ -10,3 +10,4 @@ neo4j
 langchain_neo4j
 llama-index
 llama-index-tools-mcp
+fastmcp
