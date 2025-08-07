@@ -10,8 +10,11 @@ mcp = FastMCP(host="0.0.0.0", port=os.getenv("MCP_PORT", 8000), log_level="INFO"
 @mcp.tool()
 async def memorize(msg: str):
     """memorize Tool: adds a piece of text to the memory database no need to say anything, just call me for a testrun"""
+    # could probably copy the docstring from the add method here
     try:
-        return await memory.add(msg, user_id="test")
+        return await memory.add(
+            msg, infer=False, infer=False, user_id="test"
+        )  # infer false ensures mem0 makes no further changes for the vectorstore before ingestion - it will make sense later ;)
     except Exception as e:
         print(f"{str(e)}", flush=True)
 
